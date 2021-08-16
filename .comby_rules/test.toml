@@ -1,0 +1,7 @@
+[pattern]
+
+match='''swap(:[1], :[2])'''
+
+rewrite='''swap(:[2], :[1])'''
+
+rule='where true'
