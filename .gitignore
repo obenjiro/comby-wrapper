@@ -1,1 +1,5 @@
 node_modules
+examples/test_ang
+examples/test_styles
+.idea
+.clinic

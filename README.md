@@ -1,4 +1,4 @@
-# Comby Helper
+# Comby Wrapper
 
 Wrapper around CLI tool [Comby](https://github.com/comby-tools/comby). Comby is a tool for searching and changing code structure
 
@@ -6,61 +6,54 @@ Wrapper around CLI tool [Comby](https://github.com/comby-tools/comby). Comby is 
 
 Install Comby manually https://comby.dev/docs/get-started
 
-1) Run Comby Helper CLI
+0) Install comby-wrapper
 ```bash
-npx comby-helper
+npm i comby-wrapper
 ```
 
-2) Inside of interactive CLI create new pattern
+1) Create script file (script.js) and import comby-wrapper and install functional helper lib 
+(I recommend you to use rambdax)
+```js
+const CW = require('comby-wrapper');
+const R = require('rambdax');
+```
+
+2) Write other code for the script file (script.js)
+```js
+async function main() {
+    const files = await CW.getFiles(["./react_app/**/*.js"], {
+        ignore: ['**/node_modules/**']
+    });
+
+    await R.pipedAsync(
+        files,
+        // query
+        CW.match(`const :[[cname]] = props => {:[hole]}`),
+        // here we preparing replacments
+        CW.replaceWithSmartIndent(`class :[[cname]] extends React.Component {
+            render() {
+                const props = this.props;
+                :[hole]
+            }
+        }`),
+        // this command is applying all the replacments in original files
+        CW.flushWith(CW.flushInPlace) 
+    )
+}
+main();
+```
+
+3) Run script
 ```bash
-init test
-```
+node script.js
 
-.comby_rules/test.toml file will be created
-
-3) Edit it
-```toml
-[pattern]
-
-match='''swap(:[1], :[2])'''
-
-rewrite='''swap(:[2], :[1])'''
-
-rule='where true'
-```
-
-4) Dry run (to test rule). 
-
-Create src folder and add test file to it (somefile.js)
-
-```javascript
-swap(x, y)
-```
-
-Return to interactive console. First argument is a target folder. Second argument is a rule name.
-```bash
-dry-run ./src test # or d ./src test
-```
-
-5) If everything is OK - apply this rule by calling
-```bash
-apply ./src test # or a ./src test
-```
-
-Every file will be changed automatically.
-
-### Additional Options
-
-To filter files by extensions add -x option
-```bash
-a ./src test -x .js,.ts,.jsx,.tsx
-```
-
-To exlude folders add -e option
-```bash
-a ./src test -e vendor,node_modules,test
+# or if you don't want to see progress bar
+PROGRESS=0 node script.js
 ```
 
 ### Documentation
 
-Plz refer to official comby docs https://comby.dev/docs/overview
+Plz read this before you start to use comby-wrapper: 
+1) official comby docs https://comby.dev/docs/overview
+2) official rambdax docs https://github.com/selfrefactor/rambdax#api 
+3) examples folder for query and replace example
