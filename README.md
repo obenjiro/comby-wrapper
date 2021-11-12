@@ -6,9 +6,9 @@ Wrapper around CLI tool [Comby](https://github.com/comby-tools/comby). Comby is 
 
 Install Comby manually https://comby.dev/docs/get-started
 
-0) Install comby-wrapper
+0) Install comby-wrapper and rambdax
 ```bash
-npm i comby-wrapper
+npm i comby-wrapper, rambdax
 ```
 
 1) Create script file (script.js) and import comby-wrapper and install functional helper lib 
