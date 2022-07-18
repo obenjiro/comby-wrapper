@@ -1,5 +1,5 @@
 const R = require('rambdax');
-const {matchMatchHelper} = require("./match-match-helper");
+const {matchMatchHelper} = require("./match-match-helper-native");
 
 async function matchVars(varNames, matchPattern, matches) {
     matches = [].concat.call([], matches);

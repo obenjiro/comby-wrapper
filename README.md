@@ -1,24 +1,29 @@
 # Comby Wrapper
 
-Wrapper around CLI tool [Comby](https://github.com/comby-tools/comby). Comby is a tool for searching and changing code structure
+Wrapper around [Comby](https://github.com/comby-tools/comby). Comby is a tool for searching and changing code structure
 
 ### Quckstart
 
-Install Comby manually https://comby.dev/docs/get-started
+1) Install Comby Server
+```bash
+git clone https://github.com/obenjiro/comby-server.git
+cd comby-server
+docker-compose up
+```
 
-0) Install comby-wrapper and rambdax
+2) Install comby-wrapper and rambdax
 ```bash
 npm i comby-wrapper, rambdax
 ```
 
-1) Create script file (script.js) and import comby-wrapper and install functional helper lib 
+3) Create script file (script.js) and import comby-wrapper and install functional helper lib 
 (I recommend you to use rambdax)
 ```js
 const CW = require('comby-wrapper');
 const R = require('rambdax');
 ```
 
-2) Write other code for the script file (script.js)
+4) Write other code for the script file (script.js)
 ```js
 async function main() {
     const files = await CW.getFiles(["./react_app/**/*.js"], {
@@ -43,12 +48,12 @@ async function main() {
 main();
 ```
 
-3) Run script
+5) Run script
 ```bash
 node script.js
 
-# or if you don't want to see progress bar
-PROGRESS=0 node script.js
+# or if you want to see progress bar
+PROGRESS=1 node script.js
 ```
 
 ### Documentation

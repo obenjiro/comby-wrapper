@@ -2,10 +2,10 @@ const R = require('rambdax');
 
 module.exports = {
     selectVars: async (varNames, matches) => {
-        return R.piped(
+        return R.pipedAsync(
             await matches,
             R.chain(R.prop('vars')),
-            R.filter(x => varNames.includes(x.variable))
+            R.filter(x => x && varNames.includes(x.variable))
         )
     }
 }

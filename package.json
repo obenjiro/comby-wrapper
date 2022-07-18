@@ -1,6 +1,6 @@
 {
     "name": "comby-wrapper",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "description": "",
     "main": "comby-wrapper.js",
     "scripts": {
@@ -17,16 +17,23 @@
         "cli-progress": "^3.9.1",
         "command-exists": "^1.2.9",
         "dedent-js": "^1.0.1",
+        "express": "^4.18.0",
         "fast-glob": "^3.2.7",
         "fs-extra": "^9.1.0",
         "glob": "^7.1.7",
+        "js-yaml": "^4.1.0",
         "magic-string": "^0.25.7",
+        "minimatch": "^5.0.1",
         "ndjson": "^2.0.0",
+        "node-fetch": "^2.6.7",
         "nodemon": "^2.0.7",
         "rambdax": "^7.4.1",
+        "ripgrep-node": "^1.0.0",
+        "shelljs": "^0.8.5",
         "unescape-js": "^1.1.4",
         "vorpal": "^1.12.0",
         "vorpal-autocomplete-fs": "0.0.3",
+        "vscode-ripgrep": "^1.13.2",
         "yaml": "^1.10.2"
     },
     "devDependencies": {

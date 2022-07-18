@@ -33,7 +33,8 @@ async function main() {
     console.log(CW.toYamlString(result2));
 
     // components
-    const result3 = await R.pipeAsync(
+    const result3 = await R.pipedAsync(
+        files,
         CW.concatAll([
             CW.match(`const :[[cname]] = props => {:[hole]}`),
             CW.match(`class :[[cname]] extends React.Component {:[hole]}`)
@@ -42,7 +43,7 @@ async function main() {
         R.pluck('matched'),
         R.uniq,
         R.sortBy(R.identity)
-    )(files)
+    )
 
     console.log('\n=== Cmps ===')
     console.log(CW.toYamlString(result3));

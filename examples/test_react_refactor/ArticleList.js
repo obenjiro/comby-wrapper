@@ -7,34 +7,34 @@ class ArticleList extends React.Component {
     render() {
         const props = this.props;
         if (!props.articles) {
-          return (
-            <div className="article-preview">Loading...</div>
-          );
+            return (
+                <div className="article-preview">Loading...</div>
+            );
         }
         
         if (props.articles.length === 0) {
-          return (
-            <div className="article-preview">
-              No articles are here... yet.
-            </div>
-          );
+            return (
+                <div className="article-preview">
+                    No articles are here... yet.
+                </div>
+            );
         }
         
         return (
-          <div>
+            <div>
             {
-              props.articles.map(article => {
-                return (
-                  <ArticlePreview article={article} key={article.slug} />
-                );
-              })
+                props.articles.map(article => {
+                    return (
+                        <ArticlePreview article={article} key={article.slug} />
+                    );
+                })
             }
         
             <ListPagination
-              pager={props.pager}
-              articlesCount={props.articlesCount}
-              currentPage={props.currentPage} />
-          </div>
+                pager={props.pager}
+                articlesCount={props.articlesCount}
+                currentPage={props.currentPage} />
+            </div>
         );
     }
 };

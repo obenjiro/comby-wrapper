@@ -2,7 +2,7 @@ const cliProgress = require('cli-progress');
 
 // create a new progress bar instance and use shades_classic theme
 const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
-const isProgress = !(process.env.PROGRESS == '0' || process.env.PROGRESS == 'false');
+const isProgress = (process.env.PROGRESS == '1' || process.env.PROGRESS == 'true' || process.env.PROGRESS == 'on');
 
 let currentMax = 0;
 let currentVal = 0;
