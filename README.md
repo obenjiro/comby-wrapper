@@ -13,6 +13,7 @@ docker-compose up
 
 2) Install comby-wrapper and rambdax
 ```bash
+npm init -y
 npm i comby-wrapper, rambdax
 ```
 
@@ -21,10 +22,7 @@ npm i comby-wrapper, rambdax
 ```js
 const CW = require('comby-wrapper');
 const R = require('rambdax');
-```
 
-4) Write other code for the script file (script.js)
-```js
 async function main() {
     const files = await CW.getFiles(["./react_app/**/*.js"], {
         ignore: ['**/node_modules/**']
