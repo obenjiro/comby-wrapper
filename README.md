@@ -14,7 +14,7 @@ docker-compose up
 2) Install comby-wrapper and rambdax
 ```bash
 npm init -y
-npm i comby-wrapper, rambdax
+npm i comby-wrapper rambdax
 ```
 
 3) Create script file (script.js) and import comby-wrapper and install functional helper lib 
